@@ -1,3 +1,22 @@
-<p>
-  alta-aviso works!
-</p>
+<div class="container">
+    <h1>Alta de Avisos</h1>
+    <form>
+      <div class="form-group">
+        <label for="titulo">Titulo</label>
+        <input type="text" class="form-control" id="titulo" required [(ngModel)]="model.titulo" name="titulo">
+        TODO: remove this: {{model.titulo}}
+      </div>
+ 
+      <div class="form-group">
+        <label for="Cuerpo">Cuerpo</label>
+        <input type="text" class="form-control" id="Cuerpo">
+      </div>
+
+       <div class="form-group">
+        <label for="Fecha_vencimiento">Fecha de Vencimiento</label>
+        <input type="text" class="form-control" id="Fecha_vencimiento">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+ 
+    </form>
+</div>
