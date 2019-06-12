@@ -5,8 +5,7 @@ export class Aviso {
     public fecha_vencimiento: string;
     public fecha_alta: string;
 
-	constructor(titulo, cuerpo, fecha_vencimiento, fecha_alta
-  ) 
+	constructor(titulo, cuerpo, fecha_vencimiento, fecha_alta ) 
 	{
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;

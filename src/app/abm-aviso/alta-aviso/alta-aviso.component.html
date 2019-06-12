@@ -1,15 +1,20 @@
 <div class="container">
     <h1>Alta de Avisos</h1>
-    <form>
+    <form #altaAvisoForm="ngForm">
       <div class="form-group">
         <label for="titulo">Titulo</label>
-        <input type="text" class="form-control" id="titulo" required [(ngModel)]="model.titulo" name="titulo">
-        TODO: remove this: {{model.titulo}}
+        <input type="text" class="form-control" id="titulo" required [(ngModel)]="model.titulo" name="titulo" #name="ngModel">
+		<div [hidden]="name.valid || name.pristine"
+    		class="alert alert-danger">
+  				Campo Requerido
+  		</div>
       </div>
+        TODO: remove this: {{model.titulo}}
  
       <div class="form-group">
-        <label for="Cuerpo">Cuerpo</label>
-        <input type="text" class="form-control" id="Cuerpo">
+        <label for="cuerpo">Cuerpo</label>
+        <input type="text" class="form-control" id="cuerpo" required [(ngModel)]="model.cuerpo" name="cuerpo" #spy>
+        <br>TODO: remove this: {{spy.className}}
       </div>
 
        <div class="form-group">
