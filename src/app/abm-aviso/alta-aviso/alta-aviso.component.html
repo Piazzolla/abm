@@ -1,27 +1,47 @@
 <div class="container">
-    <h1>Alta de Avisos</h1>
-    <form #altaAvisoForm="ngForm">
-      <div class="form-group">
-        <label for="titulo">Titulo</label>
-        <input type="text" class="form-control" id="titulo" required [(ngModel)]="model.titulo" name="titulo" #name="ngModel">
-		<div [hidden]="name.valid || name.pristine"
-    		class="alert alert-danger">
-  				Campo Requerido
-  		</div>
-      </div>
-        TODO: remove this: {{model.titulo}}
- 
-      <div class="form-group">
-        <label for="cuerpo">Cuerpo</label>
-        <input type="text" class="form-control" id="cuerpo" required [(ngModel)]="model.cuerpo" name="cuerpo" #spy>
-        <br>TODO: remove this: {{spy.className}}
-      </div>
+	<div [hidden]="submitted">
+	    <h1>Alta de Avisos</h1>
+	    <form (ngSubmit)="onSubmit()" #altaAvisoForm="ngForm">
+	      <div class="form-group">
+	        <label for="titulo">Titulo</label>
+	        <input type="text" class="form-control" id="titulo" required [(ngModel)]="model.titulo" name="titulo" #name="ngModel">
+			<div [hidden]="name.valid || name.pristine"
+	    		class="alert alert-danger">
+	  				Campo Requerido
+	  		</div>
+	      </div>
+	        TODO: remove this: {{model.titulo}}
+	 
+	      <div class="form-group">
+	        <label for="cuerpo">Cuerpo</label>
+	        <input type="text" class="form-control" id="cuerpo" required [(ngModel)]="model.cuerpo" name="cuerpo" #spy>
+	        <br>TODO: remove this: {{spy.className}}
+	      </div>
 
-       <div class="form-group">
-        <label for="Fecha_vencimiento">Fecha de Vencimiento</label>
-        <input type="text" class="form-control" id="Fecha_vencimiento">
-      </div>
-      <button type="submit" class="btn btn-success">Submit</button>
- 
-    </form>
+	       <div class="form-group">
+	        <label for="fecha_vencimiento">Fecha de Vencimiento</label>
+	        <input type="text" class="form-control" id="fecha_vencimiento" [(ngModel)]="model.fecha_vencimiento" name="fecha_vencimiento">
+	      </div>
+	 		<button type="submit" class="btn btn-success" [disabled]="!altaAvisoForm.form.valid">Enviar</button>
+	    </form>
+	</div>
+</div>
+
+
+<div [hidden]="!submitted">
+  <h2>Información enviada:</h2>
+  <div class="row">
+    <div class="col-xs-3">Titulo</div>
+    <div class="col-xs-9">{{ model.titulo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Cuerpo</div>
+    <div class="col-xs-9">{{ model.cuerpo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Fecha de vencimiento</div>
+    <div class="col-xs-9">{{ model.fecha_vencimiento }}</div>
+  </div>
+  <br>
+  <button class="btn btn-primary" (click)="submitted=false">Edit</button>
 </div>
